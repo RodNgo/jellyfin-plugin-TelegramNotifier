@@ -118,6 +118,17 @@ namespace Jellyfin.Plugin.TelegramNotifier
                     continue;
                 }
 
+                // For user-specific events (playback, etc.), only notify the config of the user who triggered the event
+                if (!string.IsNullOrEmpty(userId) && user.UserId is not null)
+                {
+                    string currentUserid = user.UserId.Replace("-", string.Empty, StringComparison.OrdinalIgnoreCase);
+                    string notifUserId = userId.Replace("-", string.Empty, StringComparison.OrdinalIgnoreCase);
+                    if (currentUserid != notifUserId)
+                    {
+                        continue;
+                    }
+                }
+
                 if (user.DoNotMentionOwnActivities == true && user.UserId is not null)
                 {
                     string currentUserid = user.UserId.Replace("-", string.Empty, StringComparison.OrdinalIgnoreCase);
