@@ -153,12 +153,12 @@ namespace Jellyfin.Plugin.TelegramNotifier
                 string threadId = user.ThreadId;
 
                 /* ---------- Avoid duplicated notifications ---------- */
-                string fingerprint = $"{type}|{chatId}|{message}";
+                string fingerprint = $"{type}|{chatId}|{threadId}|{message}";
 
                 if (!NotificationDeduplicator.ShouldSend(fingerprint))
                 {
                     _logger.LogInformation(
-                        "Duplicate notification skipped ({NotificationType}|{ChatId}|{Message})", type, chatId, message);
+                        "Duplicate notification skipped ({NotificationType}|{ChatId}|{ThreadId}|{Message})", type, chatId, threadId, message);
                     continue;
                 }
 

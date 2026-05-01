@@ -9,6 +9,14 @@
         "imageUrl": "https://raw.githubusercontent.com/RomainPierre7/jellyfin-plugin-TelegramNotifier/main/assets/banner.png",
         "versions": [
             {
+                "checksum": "28eccfca644e5194b78a5fd9e5e67b54",
+                "version": "12.2.1.0",
+                "targetAbi": "10.11.0.0",
+                "sourceUrl": "https://github.com/RodNgo/jellyfin-plugin-TelegramNotifier/releases/download/12.2.1.0/TelegramNotifier.zip",
+                "timestamp": "2026-05-01T07:00:00Z",
+                "changelog": "### ⚙️ Fixes:\n- Fix duplicate notification deduplication ignoring ThreadId, causing wrong thread to receive notifications in same group"
+            },
+            {
                 "checksum": "2ca078d8796795428d38ad80008d34c9",
                 "version": "12.2.0.0",
                 "targetAbi": "10.11.0.0",
